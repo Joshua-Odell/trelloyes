@@ -6,7 +6,7 @@ function Card(props){
             <button type="button">delete</button>
             <h3>{props.title}</h3>
             <p>{props.content}</p>
-          </div>
+        </div>
     )
 }
 
