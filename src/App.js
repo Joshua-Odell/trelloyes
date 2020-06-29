@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import List from './List'
-import './style.css';
+import './app.css';
 
 class App extends Component {
   static defaultProps = {
