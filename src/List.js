@@ -12,11 +12,14 @@ function List(props) {
         {props.cards.map((card) =>
           <Card
             key={card.id}
+            id={card.id}
             title={card.title}
             content={card.content}
+            onDeleteItem={props.onDeleteItem}
           />
         )}
         <button
+          onClick={() => props.onAddItem(props.id)}
           type='button'
           className='List-add-button'
         >
@@ -26,5 +29,7 @@ function List(props) {
     </section>
   )
 }
-
+List.defaultProps = {
+  onClickAdd: () => {}
+}
 export default List;
