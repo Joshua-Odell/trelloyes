@@ -41,11 +41,11 @@ class App extends Component {
     })
   };  
 
-  handleAddItem(key){ 
+  handleAddItem(listId){ 
     const newCard = newRandomCard()
-    console.log(this.state);
-    const newLists = this.state.store.lists.map(list => { //undefined error off this
-      if (list.id === key) {
+    console.log(this);
+    const newLists = this.cards.map(list => { //undefined error off this
+      if (list.id === listId) {
         return {
           ...list,
           cardIds: [...list.cardIds, newCard.id]
@@ -58,7 +58,7 @@ class App extends Component {
       store: {
         lists: newLists,
         allCards: {
-          ...this.state.store.allCards,
+          ...this.cards,
           [newCard.id]: newCard
         }
       }
@@ -68,6 +68,7 @@ class App extends Component {
   render() {
     const { store } = this.state
     console.log(this.state.store.lists)
+    console.log(this.state.store.lists[0])
     return (
       <main className='App'>
         <header className='App-header'>
