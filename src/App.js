@@ -35,7 +35,7 @@ class App extends Component {
 
     this.setState({
       store: {
-        list: newLists,
+        lists: newLists,
         allCards: newCards
       }
     })
@@ -43,7 +43,7 @@ class App extends Component {
 
   handleAddItem(key){ 
     const newCard = newRandomCard()
-
+    console.log(this.state);
     const newLists = this.state.store.lists.map(list => { //undefined error off this
       if (list.id === key) {
         return {
@@ -56,7 +56,7 @@ class App extends Component {
 
     this.setState({
       store: {
-        list: newLists,
+        lists: newLists,
         allCards: {
           ...this.state.store.allCards,
           [newCard.id]: newCard
@@ -67,13 +67,14 @@ class App extends Component {
 
   render() {
     const { store } = this.state
+    console.log(this.state.store.lists)
     return (
       <main className='App'>
         <header className='App-header'>
           <h1>Trelloyes!</h1>
         </header>
         <div className='App-list'>
-          {store.lists.map(list => ( //I am getting an Undefined error off store even thought it shows the correct information
+          {this.state.store.lists.map(list => ( //I am getting an Undefined error off store even thought it shows the correct information
             <List
               key={list.id}
               id={list.id}
